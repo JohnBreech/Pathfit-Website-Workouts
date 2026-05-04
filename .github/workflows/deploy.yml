@@ -2,7 +2,7 @@ name: Deploy Vite Site to Pages
 
 on:
   push:
-    branches: ["main"] # Change this to "master" if that is your branch name
+    branches: ["main"] # Double check if your branch is 'main' or 'master'
 
 permissions:
   contents: read
@@ -11,6 +11,9 @@ permissions:
 
 jobs:
   build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
