@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+  --color-slightblack: #1C1C1C;
+  --color-burgundy: #800020;
+  --color-beige: #D4A373;
+}
+
+@layer components {
+  .membersMobile {
+    @apply text-xl text-white cursor-pointer;
+  }
+
+  
+}

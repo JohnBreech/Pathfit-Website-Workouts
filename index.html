@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="src/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PATHFIT Progress Website</title> 
+</head>
+<body class="m-0 p-0 overflow-x-hidden bg-slightblack"> 
+    <nav class="navbar sticky top-0 z-50 w-full">
+      <div class="bg-burgundy w-full h-20 p-5 flex flex-row justify-between items-center">
+        <div class="logo">
+          <h1 class="text-2xl text-white font-bold">GROUP 3</h1>
+        </div>
+
+        <div class="menu flex flex-col gap-1 cursor-pointer sm:hidden">
+          <div class="bg-slightblack w-10 h-1.5 rounded-2xl"></div>
+          <div class="bg-slightblack w-10 h-1.5 rounded-2xl"></div>
+          <div class="bg-slightblack w-10 h-1.5 rounded-2xl"></div>
+        </div>
+
+        <div class="membersPC hidden sm:flex flex-row gap-5 text-white">
+          <span><a href="#Villaverde">Villaverde</a></span>
+          <span><a href="#Dagpin">Dagpin</a></span>
+          <span><a href="#Mondragon">Mondragon</a></span>
+          <span><a href="#MohammadAli">Mohammad Ali</a></span>
+          <span><a href="#DelosReyes">Delos Reyes</a></span>
+          <span><a href="#Bacalso">Bacalso</a></span>
+          <span><a href="#Waniwan">Waniwan</a></span>
+        </div>
+      </div>
+      
+      <div class="membersMobileMenu hidden absolute top-20 left-0 bg-burgundy w-full h-auto p-5 flex flex-col items-center gap-4 text-white shadow-lg">
+        <span><a href="#Villaverde">Villaverde</a></span>
+        <span><a href="#Dagpin">Dagpin</a></span>
+        <span><a href="#Mondragon">Mondragon</a></span>
+        <span><a href="#MohammadAli">Mohammad Ali</a></span>
+        <span><a href="#DelosReyes">Delos Reyes</a></span>
+        <span><a href="#Bacalso">Bacalso</a></span>
+        <span><a href="#Waniwan">Waniwan</a></span>
+      </div>
+    </nav>
+    
+    <div class="hero bg-slightblack w-full min-h-[60vh] flex flex-col justify-center items-center p-6">
+      <h1 class="text-5xl sm:text-7xl text-white text-center">GROUP 3</h1>
+      <h2 class="text-white text-center mt-4 opacity-80">To be Pass to Sir Alfrenz Columbres</h2>
+    </div>
+
+    <div class="motivation bg-burgundy w-full h-auto p-5 flex flex-col justify-center items-center">
+      <div class="flex flex-row flex-wrap justify-center items-end gap-2 sm:gap-5 w-full max-w-full">
+        <h1 class="text-xl text-white">JAN</h1>
+          
+        <div class="progressIcon flex flex-row items-end gap-1 sm:gap-2">
+          <div class="bg-slightblack w-6 h-12"></div>
+          <div class="bg-slightblack w-7 h-16"></div>
+          <div class="bg-slightblack w-8 h-20"></div>
+          <div class="bg-slightblack w-9 h-24"></div>
+          <div class="bg-slightblack w-10 h-28"></div>
+        </div>
+          
+        <h1 class="text-xl text-white">MAY</h1>
+      </div>
+
+      <div class="p-5 italic text-center w-full">
+        <p id="quote-text" class="text-white text-base sm:text-lg">"Where violence reigns, reason is weak."</p>
+        <p id="quote-author" class="text-gray-300 text-sm mt-2">- Nicolas Chamfort</p>
+      </div>
+    </div>
+
+    <div class="progress">
+    
+
+      <!--OTHER MEMBERS-->
+    </div>
+    <div id="imageModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black bg-opacity-90 p-4">
+      <button onclick="closeModal()" class="absolute top-5 right-10 text-white text-5xl font-bold">&times;</button>
+      
+      <img id="modalImg" class="max-w-full max-h-full rounded-lg shadow-2xl" src="" alt="Full size proof">
+    </div>
+
+    <script>
+        const menuBtn = document.querySelector('.menu');
+        const mobileMenu = document.querySelector('.membersMobileMenu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        async function fetchQuote() {
+            try {
+                // Using the CORS proxy to prevent the error you had earlier
+                const response = await fetch('https://corsproxy.io/?https://zenquotes.io/api/random');
+                const data = await response.json();
+                document.getElementById('quote-text').innerText = `"${data[0].q}"`;
+                document.getElementById('quote-author').innerText = `- ${data[0].a}`;
+            } catch (err) {
+                document.getElementById('quote-text').innerText = "The only way to do great work is to love what you do.";
+                document.getElementById('quote-author').innerText = "- Steve Jobs";
+            }
+        }
+        fetchQuote();
+
+
+        const members = [
+          {
+            name: "John Breech P. Villaverde",
+            id: "Villaverde",
+            portrait: "src/assets/villaverde/villaverde_portrait.jpg",
+            stats: "169.0cm | 69Kg | 19y/o",
+            goal: "To reach 67kg",
+            progress: "Succeeded by April 15, 2026, and maintained weight 67-69kg.",
+            fittImage: "src/assets/villaverde/villaverde_fitt.png",
+            reflection: "As a person who have already been going to the gym. This journey helped me to be more focused on my goal, which was to lose weight and body fats. I was able to accomplish this goal by April 15, 2026, then I maintained my weight by 67-69kg, currently at 69 kg by May 4, 2026. Below are my proof of journey through running, working out in the gym, and before and after of me.",
+            proofImages: [
+              "src/assets/villaverde/villaverde_p1.png",
+              "src/assets/villaverde/villaverde_p2.jpg",
+              "src/assets/villaverde/villaverde_p3.jpg",
+              "src/assets/villaverde/villaverde_p4.jpg",
+              "src/assets/villaverde/villaverde_p5.jpg"
+            ]
+          },
+          {
+            name: "Jian Gabrielle M. Dagpin",
+            id: "Dagpin",
+            portrait: "src/assets/dagpin/dagpin_portrait.jpg",
+            stats: "152.0cm | 44Kg | 19y/o",
+            goal: "To lessen fatigue and stress during jogging, as well as build stamina and endurance in physical activities.",
+            progress: "Jogging outside not only helped me physically, but also mentally.",
+            fittImage: "src/assets/dagpin/dagpin_fitt.png",
+            reflection: "During the pathfit exercises, I was able to complete 2 weeks according to my F.I.T.T plan of jogging twice every 2 weeks, and planking once a week. The plan was organized in order to help me build my endurance during physical activities as well as push my body to the extent without harmful results, such as gradually increasing my steps per week, which I believed succeeded with this F.I.T.T plan as it showed results of improvement. During the 1st day of the start of the exercise plan, I was able to reach 10 thousand steps of the day, the 2nd day was not recorded with images, however it did not surpass 10k thousand. During breaks, when I am able to, I try to fit in daily walks, simple routines such as walking around campus to build my endurance, where it paid off at the last day of the plan, which was the 2nd Day of the week 2, where I was able to surpass 10 thousand steps and reached 14, which was an improvement based on the results of the first week. Planking once a week helped me build my core strength as well as build up my breathing in order to maintain steady breath when jogging, which contributed greatly based on the results. Jogging outside not only helped me physically, but also mentally. It allowed me to stay calm as I jogged and I managed to observe the things around me, from nature to other people that passed by. Exercising helped me realize that being fit does not only result in improved or maintain physical strength, but also awareness and the inner self.",
+            proofImages: [
+              "src/assets/dagpin/dagpin_p1.jpg",
+              "src/assets/dagpin/dagpin_p2.jpg",
+              "src/assets/dagpin/dagpin_p3.jpg",
+              "src/assets/dagpin/dagpin_p4.jpg",
+              "src/assets/dagpin/dagpin_p5.jpg",
+              "src/assets/dagpin/dagpin_p6.jpg",
+              "src/assets/dagpin/dagpin_p7.jpg"
+            ]
+          },
+          {
+            name: "Matthew Benedict Mondragon",
+            id: "Mondragon",
+            portrait: "src/assets/mondragon/portrait.jpg",
+            stats: "164.0cm | 77Kg | 20y/o",
+            goal: "To be consistent in my exercises and lose weight over time and improve my cardio.",
+            progress: " I will say I became more consistent than how I was before, who was lazy and did not want to move around much.",
+            fittImage: "src/assets/mondragon/mondragon_fitt.png",
+            reflection: "I was able to do the exercises based on the F.I.T.T. plan that I had made which was tailored for me. For the body composition, I was able to walk and jog a lot of times in school since I like to walk around the campus and when commuting I just walk from the jeep to the school which is about 1 km. I mostly do it at school because I have the freedom like during my gap hours or break times unlike in my house since I am occupied with tasks and chores a lot of time so I am only available at night therefore I cannot go out for a jog. For balance exercises, I can do it anywhere since I just need to be steady in one place. Honestly I am not sure if I completed it all every week since I lost track of all of my progress because I randomly do it and tend to forget to take a picture so I do not have a lot but my family usually sees me do it like walk and do jumping jacks randomly. I mostly do it in the morning after I wake up to kind of stretch my body and wake them up then at night before I go to bed. Overall, I will say I became more consistent than how I was before, who was lazy and did not want to move around much. I did not meet my expectations like losing weight since diet also matters in that but at least with my consistency I can do it better next time.",
+            proofImages: [
+              "src/assets/mondragon/p1.jpg",
+              "src/assets/mondragon/p2.jpg",
+              "src/assets/mondragon/p3.jpg",
+              "src/assets/mondragon/p4.jpg"
+            ]
+          },
+          {
+            name: "Ameer M. Mohammad Ali",
+            id: "MohammadAli",
+            portrait: "src/assets/MA/p2.jpg",
+            stats: "170.0cm | 45Kg | 19y/o",
+            goal: "To develop physical health through the gym as well as to heighten confidence by building a toned body.",
+            progress: "Starting to care about my physical health had made me a better person who became able to manage my habits and gave me a more versatile insight towards my physical health.",
+            fittImage: "src/assets/MA/Fitt.jpg",
+            reflection: "We were tasked to record our fitness journey using the FITT Template we did back a few months ago, for me I did use a FITT plan, but then again I used the first plan that IORNE MARTIN used. Due to me starting to go to the gym. Starting to care about my physical health had made me a better person who became able to manage my habits and gave me a more versatile insight towards my physical health. Using the fitt plan iorne martin has i followed it and it became my daily routine with rest days shifting to when we had night classes or were busy. I was able to grow my muscles bigger than they were before giving my self esteem a complete uplift and helping me gain the confidence to show off my arms. I will continue to follow iornes fitt plan until the goal I set for myself is to become a better person with a better physical health habit. And to be more active and work on my body and self esteem. Around the first week of the gym sessions we would have is shown that i started to see the pump around my body, and for progressing weeks we would see marginal growth until the fourth week it looks like nothing because we haven't really done any bicep work out over all i am proud of what i have achieved in the gym and i am looking forwards to my growth as a person physically and emotionally and mentally.",
+            proofImages: [
+              "src/assets/MA/p1.jpg",
+              "src/assets/MA/p2.jpg",
+              "src/assets/MA/p3.jpg",
+              "src/assets/MA/p4.jpg"
+            ]
+          },
+          {
+            name: "Harvey B. Delos Reyes",
+            id: "DelosReyes",
+            portrait: "src/assets/DR/portrait.jpg",
+            stats: "167.64cm | 57Kg | 19y/o",
+            goal: "To Improves stamina and Full Body Conditioning",
+            progress: "This routine also shows my commitment and discipline because following it requires consistency and proper time management.",
+            fittImage: "src/assets/DR/fitt.png",
+            reflection: "Honestly, my FITT table routine reflects how I plan to improve my overall fitness in a balanced and organized way. While it also helps prepare me for ROTC training, my main goal is to become healthier, stronger, and more physically fit in general. By including cardio exercises like jogging and running, along with core workouts, full-body training, and flexibility exercises, I am able to focus on different areas of my physical health. At the same time, I also want my body to look fit and well-conditioned, so this routine helps me improve both my performance and physical appearance. I realized that having a structured routine helps me stay consistent and makes it easier for me to monitor my progress. I believe the frequency and intensity of my exercises are appropriate because they challenge me without pushing me too much. Doing cardio 4–6 times a week helps me build endurance, which is useful not only for ROTC but also for my daily activities. My core and training days help me develop strength, discipline, and body control, while flexibility exercises help my body recover and reduce the risk of injuries. This routine also shows my commitment and discipline because following it requires consistency and proper time management. Even when it gets challenging, I am learning to stay focused and motivated. Overall, I believe my FITT plan is effective because it is complete, realistic, and focused on long-term improvement, helping me achieve a healthier lifestyle, a stronger body, and better preparation for physical activities like ROTC.",
+            proofImages: [
+              "src/assets/DR/p1.jpg",
+              "src/assets/DR/p2.jpg",
+              "src/assets/DR/p3.jpg",
+              "src/assets/DR/p4.JPG",
+              "src/assets/DR/p5.jpg"
+            ]
+          },
+          {
+            name: "Rain Christian R. Bacalso",
+            id: "Bacalso",
+            portrait: "",
+            stats: "162.56cm | 51Kg | 19y/o",
+            goal: "",
+            progress: "",
+            fittImage: "",
+            reflection: "",
+            proofImages: [
+            ]
+          },
+          {
+            name: "Julie Waniwan",
+            id: "Waniwan",
+            portrait: "",
+            stats: "",
+            goal: "",
+            progress: "",
+            fittImage: "",
+            reflection: "",
+            proofImages: [
+            ]
+          },
+        ];
+
+        const progressContainer = document.querySelector('.progress');
+
+        const renderMembers = () => {
+          progressContainer.innerHTML = members.map(member => `
+            <div id="${member.id}" class="flex flex-col justify-center items-center text-white p-2 gap-2 mb-20">
+              <div class="information flex flex-col md:flex-row justify-between p-2 gap-4 md:gap-10">
+                
+                <div class="profile flex flex-col gap-2 justify-center items-center">
+                  <h1 class="name text-center text-xl font-bold">${member.name}</h1>
+                  <img class="max-w-40 h-auto rounded-2xl sm:max-w-100" src="${member.portrait}" alt="${member.name}">
+                </div>
+
+                <div class="description flex flex-col gap-2">
+                  <div class="bodyInfo text-center"><h1>${member.stats}</h1></div>
+                  <h1 class="goal">Goal: ${member.goal}</h1>
+                  <h1 class="progress-status">Current: ${member.progress}</h1>
+                  
+                  <div class="fitt flex flex-col justify-center items-center gap-2">
+                    <h1 class="text-center">FITT Plan</h1>
+                    <img class="max-w-60 sm:max-w-100" src="${member.fittImage}" alt="FITT Plan">
+                  </div>
+                  
+                  <p class="reflection text-center max-w-full px-4 italic">"${member.reflection}"</p>
+                </div>
+              </div>
+
+              <div class="mt-10 w-full overflow-hidden">
+                <h1 class="text-center text-2xl font-semibold mb-5">PROOF</h1>
+                <div class="overflow-x-auto w-full">
+                  <div class="flex gap-5 w-max pb-4">
+                    ${member.proofImages.map(img => `
+                      <img 
+                        class="w-40 h-80 object-cover rounded-2xl flex-shrink-0 cursor-pointer hover:scale-105 transition-transform" 
+                        src="${img}" 
+                        alt="Proof"
+                        onclick="openModal('${img}')" 
+                      >
+                    `).join('')}
+                  </div>
+                </div>
+              </div>
+              <hr class="border-gray-600 w-full mt-10">
+            </div>
+          `).join('');
+        };
+
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+
+        window.openModal = (src) => {
+          modalImg.src = src;
+          modal.classList.remove('hidden');
+          modal.classList.add('flex');
+        };
+
+        window.closeModal = () => {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+        };
+
+        // Initialize
+        renderMembers();
+    </script>
+</body>
+</html>
