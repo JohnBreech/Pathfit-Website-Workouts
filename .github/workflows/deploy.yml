@@ -2,20 +2,17 @@ name: Deploy Vite Site to Pages
 
 on:
   push:
-    branches: ["main"] # <--- CHANGE THIS TO "master" IF NEEDED
+    branches: ["main"] # <--- CHANGE THIS TO master IF YOUR VS CODE SAYS MASTER
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-
 jobs:
   build-and-deploy:
+    environment:
+      name: github-pages
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
